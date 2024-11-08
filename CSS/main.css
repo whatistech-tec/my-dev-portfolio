@@ -515,7 +515,7 @@
     background-image:url( "../assets/bg2.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    margin-top: 30px;
+   
    
 }
 #projects .projects__categories {
@@ -574,7 +574,7 @@
     gap: 50px;
     max-width: 900px;
     margin: auto;
-    margin-top: 70px;
+   
 }
 #projects .section__header{
     margin-top: 20px;
@@ -635,23 +635,7 @@
     padding: 50px 0;
     background: rgba(var(--bg-secondary-rgb), 0.8);
 }
-/*#testimonials::before,
-#testimonials::after{
-    content: "";
-    position: absolute;
-    width: 25%;
-    height: 100%;
-    top: 0;
-    z-index: 2;
-}
-#testimonials::before{
-    left: 0;
-    background: linear-gradient(to left, transparent, var(--bg-secondary));
-}
-#testimonials::after{
-    right: 0;
-    background: linear-gradient(to right, transparent, var(--bg-secondary));
-}*/
+
 #testimonials .sub__title{
     text-align: center;
 }
