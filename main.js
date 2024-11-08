@@ -35,21 +35,21 @@ window.onscroll = () => {
 const themeCheckbox = document.getElementById('theme-checkbox');
 const storageKey = "theme"
 if(JSON.parse(localStorage.getItem(storageKey))){
-    document.firstElementChild.setAttribute("data-theme","dark");
+    document.firstElementChild.setAttribute("data-theme","light");
     localStorage.setItem(storageKey,JSON.stringify(true));
     themeCheckbox.checked = true;
 }else{
-    document.firstElementChild.setAttribute("data-theme","light");
+    document.firstElementChild.setAttribute("data-theme","dark");
     localStorage.setItem(storageKey,JSON.stringify(false));
     themeCheckbox.checked = false;
 }
 themeCheckbox.onchange = () => {
     if(themeCheckbox.checked){
-        document.firstElementChild.setAttribute("data-theme","dark");
+        document.firstElementChild.setAttribute("data-theme","light");
         localStorage.setItem(storageKey,JSON.stringify(true));
         return
     }else{
-        document.firstElementChild.setAttribute("data-theme","light");
+        document.firstElementChild.setAttribute("data-theme","dark");
         localStorage.setItem(storageKey,JSON.stringify(false));
     }
 }
@@ -69,6 +69,37 @@ closeBtn.onclick = () => {
 };
 
 /*======== SIDEBAR END =========*/
+
+/*======== HEADER START =========*/
+const odometers = document.querySelectorAll(".odometer");
+setTimeout(() => {
+    odometers.forEach(list => {
+        let id = list.getAttribute("id");
+        if (id === "experience"){
+            list.innerHTML = 6;
+        }
+        if (id === "project"){
+            list.innerHTML = 150;
+    
+        }
+        if(id === "awards"){
+            list.innerHTML = 12;
+        }
+        if(id === "clients"){
+            list.innerHTML = 800
+        }
+    })
+},4000);
+//gsap code
+gsap
+.timeline({delay:0.5})
+.from("#header .points",{opacity:0, y:-30})
+.from("#header .me",{opacity:0, scale:0.7})
+.from(["#header .user__info .sub__title","#header .user__info .description"],{opacity:0, y: 20})
+.from("#header .user__info .title",{opacity: 0, x: -30})
+.from("#header .user__info .buttons",{opacity: 0, x: -30})
+.from("#header .point",{opacity: 0, x: -30,stagger:0.5});
+/*======== HEADER END =========*/
 
 
 
@@ -104,43 +135,9 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
 
 });
 
-/**
+
 //Register ScrollTriggerPlugin
-gsap.registerPlugin(scrollTrigger);
-
-
-
-
-/*======== HEADER START =========*/
-const odometers = document.querySelectorAll(".odometer");
-setTimeout(() => {
-    odometers.forEach(list => {
-        let id = list.getAttribute("id");
-        if (id === "experience"){
-            list.innerHTML = 6;
-        }
-        if (id === "project"){
-            list.innerHTML = 150;
-    
-        }
-        if(id === "awards"){
-            list.innerHTML = 12;
-        }
-        if(id === "clients"){
-            list.innerHTML = 800
-        }
-    })
-},4000);
-//gsap code
-gsap
-.timeline({delay:0.5})
-.from("#header .points",{opacity:0, y:-30})
-.from("#header .me",{opacity:0, scale:0.7})
-.from(["#header .user__info .sub__title","#header .user__info .description"],{opacity:0, y: 20})
-.from("#header .user__info .title",{opacity: 0, x: -30})
-.from("#header .user__info .buttons",{opacity: 0, x: -30})
-.from("#header .point",{opacity: 0, x: -30,stagger:0.5});
-/*======== HEADER END =========*/
+//gsap.registerPlugin(scrollTrigger);
 
 /*======== ABOUT START =========*/
 gsap.timeline({
@@ -177,6 +174,7 @@ gsap.timeline({
 /*======== PROJECT START =========*/
 gsap.timeline({
     delay:0.5,
+    
     scrollTrigger:{
         trigger: "#projects",
         start: "20% bottom",
@@ -194,17 +192,6 @@ gsap.timeline({
 
 /*======== PROJECT END =========*/
 
-
-
-/*======== TESTIMONIALS START =========*/
-/*const banner = document.querySelector(".swipper__wrapper");
-const bannerContent = Array.from(banner.children);
-
-bannerContent.forEach((item) => {
-    const duplicateNode = item.cloneNode(true);
-    duplicateNode.setAttribute("aria-hidden", true);
-    banner.appendChild(duplicateNode);
-});*/
 gsap.timeline({
     delay:0.5,
     scrollTrigger:{
@@ -222,21 +209,6 @@ gsap.timeline({
 )
 .from("#testimials .testimonial",{opacity:0, y: 30, stagger: 0.5});
 
-/*new Swiper(".swipper-wrapper",{
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop:true,
-    speed:5000,
-    centerSlides:true,
-    autoplay:{
-        delay:2500,
-        disableOnInteraction:false,
-    },
-    breakpoints:{
-        600: {slidesPerView: "auto"},
-    },
-});*/
-/*======== TESTIMONIALS END =========*/
 
 /*======== CONTACT START =========*/
 gsap.timeline({
@@ -256,6 +228,7 @@ gsap.timeline({
 
 
 //svg icon implementation
+/*
 const dataCustomIcon = document.querySelectorAll("data-custom-icon");
 dataCustomIcon.forEach((icon) => {
     if(icon.getAttribute("data-custom-icon")){
@@ -270,5 +243,5 @@ dataCustomIcon.forEach((icon) => {
        });
        request.send();
     }
-});
+});*/
 
