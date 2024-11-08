@@ -848,7 +848,7 @@
     border-color: var(--color-primary-light);
     background: rgba(var(--bg-base-rgb), 0.5);
 }
-#contact textarea .control{
+#contact textarea.control{
     height: 130px;
 }
 #contact .submit__btn{
