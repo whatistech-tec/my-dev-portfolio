@@ -58,15 +58,22 @@ themeCheckbox.onchange = () => {
 /*======== SIDEBAR START =========*/
 const menuBtn = document.getElementById("menu__btn");
 const sidebar = document.querySelector(".sidebar");
+const navLinks = document.getElementById("navlinks");
 const closeBtn = document.getElementById("close-sidebar-btn");
 
 menuBtn.onclick = () => {
     sidebar.classList.toggle("visible");
 };
 
+
 closeBtn.onclick = () => {
     sidebar.classList.remove("visible");
 };
+
+navLinks.onclick = () => {
+    sidebar.classList.remove("visible");
+    
+}
 
 /*======== SIDEBAR END =========*/
 
@@ -100,40 +107,6 @@ gsap
 .from("#header .user__info .buttons",{opacity: 0, x: -30})
 .from("#header .point",{opacity: 0, x: -30,stagger:0.5});
 /*======== HEADER END =========*/
-
-
-
-/* Init isotope layout and filters*/
-
-document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
- let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
- let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
- let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
- let initIsotope;
- imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-   initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-     itemSelector: '.isotope-item',
-     layoutMode: layout,
-     filter: filter,
-     sortBy: sort
-   });
- });
-
- isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-   filters.addEventListener('click', function() {
-     isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-     this.classList.add('filter-active');
-     initIsotope.arrange({
-       filter: this.getAttribute('data-filter')
-     });
-     if (typeof aosInit === 'function') {
-       aosInit();
-     }
-   }, false);
- });
-
-});
 
 
 //Register ScrollTriggerPlugin
@@ -172,6 +145,41 @@ gsap.timeline({
 /*======== SERVICES END =========*/
 
 /*======== PROJECT START =========*/
+
+ //*****MIXITUP**** */
+ var products = document.querySelector('.projects');
+ var mixer = mixitup(products);
+ var allBtn = document.getElementById("all");
+ var frontendBtn = document.getElementById("frontend");
+ var backendBtn = document.getElementById("backend");
+ var fullstackBtn = document.getElementById("fullstack");
+ 
+ allBtn.onclick = () => {
+    allBtn.classList.add('.filter-active')
+      frontendBtn.classList.remove('.filter-active')
+      backendBtn.classList.remove('.filter-active')
+      fullstackBtn.classList.remove('.filter-active')
+ }
+ frontendBtn.onclick = () => {
+  frontendBtn.classList.add('.filter-active')
+      allBtn.classList.remove('.filter-active')
+      backendBtn.classList.remove('.filter-active')
+      fullstackBtn.classList.remove('.filter-active')
+ }
+ backendBtn.onclick = () => {
+  backendBtn.classList.add('.filter-active')
+      allBtn.classList.remove('.filter-active')
+      frontendBtn.classList.remove('.filter-active')
+      fullstackBtn.classList.remove('.filter-active')
+ }
+ fullstackBtn.onclick = () => {
+  fullstackBtn.classList.add('.filter-active')
+      allBtn.classList.remove('.filter-active')
+      backendBtn.classList.remove('.filter-active')
+      frontendBtn.classList.remove('.filter-active')
+  }
+ 
+
 gsap.timeline({
     delay:0.5,
     

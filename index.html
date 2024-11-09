@@ -95,7 +95,7 @@
                     <i data-lucide="x"></i>
                 </div>
             </div>
-            <div class="middle navlinks">
+            <div class="middle navlinks" id="navlinks">
                 <a href="#header" class="navitem">Home</a>
                 <a href="#about" class="navitem">About</a>
                 <a href="#services" class="navitem">Services</a>
@@ -397,10 +397,10 @@
                 </p>
             </div>
             <ul class="projects__categories">
-                <li data-filter="*" class="btn filter-active">All</li>
-                <li data-filter=".frontend" class="btn">Frontend</li>
-                <li data-filter=".backend" class="btn">Backend</li>
-                <li data-filter=".fullstack" class="btn">Fullstack</li>
+                <li data-filter="*" class="filter-active" id="all">All</li>
+                <li data-filter=".frontend" id="frontend">Frontend</li>
+                <li data-filter=".backend" id="backend">Backend</li>
+                <li data-filter=".fullstack" id="fullstack">Fullstack</li>
             </ul>
             <div class="projects">
                 <!--project start-->
@@ -801,6 +801,7 @@
     </footer>
     <!--Footer end-->
 
+    <script src="mixitup.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="main.js" defer></script>
 </body>
