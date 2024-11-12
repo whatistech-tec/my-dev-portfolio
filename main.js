@@ -224,26 +224,3 @@ gsap.timeline({
 .from("#contact .box",{opacity:0, y:30, stagger:0.5})
 .from("#contact .contact__form",{opacity:0, x:30});
 /*======== CONTACT END =========*/
-
-
-
-
-
-//svg icon implementation
-/*
-const dataCustomIcon = document.querySelectorAll("data-custom-icon");
-dataCustomIcon.forEach((icon) => {
-    if(icon.getAttribute("data-custom-icon")){
-       const request = new MLHttpRequest();
-       request.open("GET", "./assets/icons/" + icon.getAttribute("data-custom-icon") + ".svg");
-       request.setRequestHeader("Content-Type", "image/svg+ml");
-       request.addEventListener("load",(event) => {
-        if(event.target.status === 200){
-            const response = event.target.responseText;
-            icon.innerHTML = response;
-        }
-       });
-       request.send();
-    }
-});*/
-
