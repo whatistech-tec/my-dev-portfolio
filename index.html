@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="middle navlinks" id="navlinks">
-                <a href="#header" class="navitem">Home</a>
+                <a href="#header" class="navitem active">Home</a>
                 <a href="#about" class="navitem">About</a>
                 <a href="#services" class="navitem">Services</a>
                 <a href="#projects" class="navitem">Projects</a>
@@ -209,7 +209,8 @@
                     </h2>
                     <p class="description"> I adapt to different time zones to make sure communication is smooth, no matter where you're located.</p>
                 </div>
-                <div>
+                <div class="cv">
+                    
                     <a href="#" class="btn btn__primary">Download CV</a>
                     <img src="./assets/window.svg" alt="">
                 </div>
@@ -399,107 +400,110 @@
                     Explore my latest work, blending creativity and code for functional, responsive websites with clean design and seamless user experiences.
                 </p>
             </div>
-            <ul class="projects__categories">
-                <li data-filter="*" class="filter-active" id="all">All</li>
-                <li data-filter=".frontend" id="frontend">Frontend</li>
-                <li data-filter=".backend" id="backend">Backend</li>
-                <li data-filter=".fullstack" id="fullstack">Fullstack</li>
-            </ul>
-            <div class="projects">
-                <!--project start-->
-                <div class="project">
-                    <a href="#" target="_blank" class="picture">
-                        <img src="./assets/project1.png" alt="">
-                    </a>
-                    <div class="flex details">
-                        <h3 class="line__clamp__1">
-                            Create the ultimate Animated Portfolio
-                        </h3>
-                        <p class="text__muted description line__clamp__4">
-                            Showcase your skills and creativity with a standout animated
-                            portfolio on YouTube. Capture attention, highlight your work,
-                            and leave a lasting impression with engaging visuals and dynamic
-                            storytelling!
-                        </p>
-                        <div class="flex button">
-                            <a href="#" target="_blank" class="flex__center btn" >
-                                <i data-lucide="square-arrow-out-up-right"></i>View Demo
-                            </a>
+            <div class="my-projects">
+                <ul class="projects__categories">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".frontend">Frontend</li>
+                    <li data-filter=".backend">Backend</li>
+                    <li data-filter=".fullstack">Fullstack</li>
+                </ul>
+                <div class="projects">
+                    <!--project start-->
+                    <div class="mix frontend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="./assets/project1.png" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Create the ultimate Animated Portfolio
+                            </h3>
+                            <hr>
+                            <p class="text__muted description line__clamp__4">
+                                Showcase your skills and creativity with a standout animated
+                                portfolio on YouTube. Capture attention, highlight your work,
+                                and leave a lasting impression with engaging visuals and dynamic
+                                storytelling!
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--project end-->
-                <!--project start-->
-                <div class="project">
-                    <a href="#" target="_blank" class="picture">
-                        <img src="./assets/project2.png" alt="">
-                    </a>
-                    <div class="flex details">
-                        <h3 class="line__clamp__1">
-                            Designer portfolio with nextjs
-                        </h3>
-                        <p class="text__muted description line__clamp__4">
-                            A sleek and modern designer portfolio built with Next.js,
-                            showcasing responsive design, fast performance, and seamless
-                            navigation. Perfect for creative professionals looking to
-                            display their work in style
-                        </p>
-                        <div class="flex button">
-                            <a href="#" target="_blank" class="flex__center btn" >
-                                <i data-lucide="square-arrow-out-up-right"></i>View Demo
-                            </a>
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix backend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="./assets/project2.png" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Designer portfolio with nextjs
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                A sleek and modern designer portfolio built with Next.js,
+                                showcasing responsive design, fast performance, and seamless
+                                navigation. Perfect for creative professionals looking to
+                                display their work in style
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--project end-->
-                <!--project start-->
-                <div class="project">
-                    <a href="#" target="_blank" class="picture">
-                        <img src="./assets/project3.png" alt="">
-                    </a>
-                    <div class="flex details">
-                        <h3 class="line__clamp__1">
-                            Build Modern Animated Video Conferencing Web App With ReactJs
-                        </h3>
-                        <p class="text__muted description line__clamp__4">
-                            Create a cutting-edge, animated video conferencing web app using
-                            ReactJS and ZegoCloud. This project combines real-time
-                            communication with sleek design, delivering a smooth,
-                            interactive user experience for virtual meetings.
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix fullstack project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="./assets/project3.png" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Build Modern Animated Video Conferencing Web App With ReactJs
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                Create a cutting-edge, animated video conferencing web app using
+                                ReactJS and ZegoCloud. This project combines real-time
+                                communication with sleek design, delivering a smooth,
+                                interactive user experience for virtual meetings.
 
-                        </p>
-                        <div class="flex button">
-                            <a href="#" target="_blank" class="flex__center btn" >
-                                <i data-lucide="square-arrow-out-up-right"></i>View Demo
-                            </a>
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--project end-->
-                <!--project start-->
-                <div class="project">
-                    <a href="#" target="_blank" class="picture">
-                        <img src="./assets/project4.png" alt="">
-                    </a>
-                    <div class="flex details">
-                        <h3 class="line__clamp__1">
-                            Modern solar website
-                        </h3>
-                        <p class="text__muted description line__clamp__4">
-                            Develop a modern solar energy website designed for clean,
-                            sustainable solutions. Featuring a sleek interface, responsive
-                            design, and user-friendly navigation, this site highlights the
-                            power and efficiency of solar technology.
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix frontend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="./assets/project4.png" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Modern solar website
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                Develop a modern solar energy website designed for clean,
+                                sustainable solutions. Featuring a sleek interface, responsive
+                                design, and user-friendly navigation, this site highlights the
+                                power and efficiency of solar technology.
 
-                        </p>
-                        <div class="flex button">
-                            <a href="#" target="_blank" class="flex__center btn" >
-                                <i data-lucide="square-arrow-out-up-right"></i>View Demo
-                            </a>
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <!--project end-->
                 </div>
-                <!--project end-->
             </div>
         </div>
     </section>

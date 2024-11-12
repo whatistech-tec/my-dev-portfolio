@@ -298,8 +298,8 @@
 
 #about .btn__primary{
     position: absolute;
-    left: 110px;
-    bottom: 30px;
+    bottom: 25px;
+    left: 25%;
     color: var(--text-color);
     font-weight: 600;
     box-shadow: var(--border-shadow);

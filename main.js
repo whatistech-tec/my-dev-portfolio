@@ -31,6 +31,45 @@ window.onscroll = () => {
         }
     });
 };
+
+/*======== SIDEBAR START =========*/
+const menuBtn = document.getElementById("menu__btn");
+const sidebar = document.querySelector(".sidebar");
+const router = document.querySelectorAll(".sidebar .navlinks .navitem");
+const navLinks = document.getElementById("navlinks");
+const closeBtn = document.getElementById("close-sidebar-btn");
+
+menuBtn.onclick = () => {
+    sidebar.classList.toggle("visible");
+};
+
+sections.forEach(section => {
+    let top = window.scrollY;
+    let offset = section.offsetTop - 100;
+    let height = section.offsetHeight;
+    let id = section.getAttribute("id");
+
+    if(top >= offset && top < offset + height){
+        routes.forEach((route) => {
+            route.classList.remove("active");
+            document
+                .querySelector(".sidebar .navlinks a[href*=" + id + "]")
+                .classList.add("active");
+        });
+    }
+});
+
+closeBtn.onclick = () => {
+    sidebar.classList.remove("visible");
+};
+
+navLinks.onclick = () => {
+    sidebar.classList.remove("visible");
+    
+}
+
+/*======== SIDEBAR END =========*/
+
 //Theme switching
 const themeCheckbox = document.getElementById('theme-checkbox');
 const storageKey = "theme"
@@ -54,28 +93,6 @@ themeCheckbox.onchange = () => {
     }
 }
 /*======== NAVBAR END =========*/
-
-/*======== SIDEBAR START =========*/
-const menuBtn = document.getElementById("menu__btn");
-const sidebar = document.querySelector(".sidebar");
-const navLinks = document.getElementById("navlinks");
-const closeBtn = document.getElementById("close-sidebar-btn");
-
-menuBtn.onclick = () => {
-    sidebar.classList.toggle("visible");
-};
-
-
-closeBtn.onclick = () => {
-    sidebar.classList.remove("visible");
-};
-
-navLinks.onclick = () => {
-    sidebar.classList.remove("visible");
-    
-}
-
-/*======== SIDEBAR END =========*/
 
 /*======== HEADER START =========*/
 const odometers = document.querySelectorAll(".odometer");
@@ -146,39 +163,16 @@ gsap.timeline({
 
 /*======== PROJECT START =========*/
 
- //*****MIXITUP**** */
- var products = document.querySelector('.projects');
- var mixer = mixitup(products);
- var allBtn = document.getElementById("all");
- var frontendBtn = document.getElementById("frontend");
- var backendBtn = document.getElementById("backend");
- var fullstackBtn = document.getElementById("fullstack");
- 
- allBtn.onclick = () => {
-    allBtn.classList.add('.filter-active')
-      frontendBtn.classList.remove('.filter-active')
-      backendBtn.classList.remove('.filter-active')
-      fullstackBtn.classList.remove('.filter-active')
- }
- frontendBtn.onclick = () => {
-  frontendBtn.classList.add('.filter-active')
-      allBtn.classList.remove('.filter-active')
-      backendBtn.classList.remove('.filter-active')
-      fullstackBtn.classList.remove('.filter-active')
- }
- backendBtn.onclick = () => {
-  backendBtn.classList.add('.filter-active')
-      allBtn.classList.remove('.filter-active')
-      frontendBtn.classList.remove('.filter-active')
-      fullstackBtn.classList.remove('.filter-active')
- }
- fullstackBtn.onclick = () => {
-  fullstackBtn.classList.add('.filter-active')
-      allBtn.classList.remove('.filter-active')
-      backendBtn.classList.remove('.filter-active')
-      frontendBtn.classList.remove('.filter-active')
-  }
- 
+/* //*****MIXITUP**** */
+const filterButtons = document.querySelectorAll('.projects__categories li');
+const fiterCards = e =>{
+    document.querySelector('.filter-active').classList.remove('.filter-active');
+    e.target.classList.add('.filter-active');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    var mixer = mixitup('.my-projects')
+});
 
 gsap.timeline({
     delay:0.5,
