@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+   
+    {% block title %}
+        About
+    {% endblock title %}
+    
+   {% block body %}
+   <section id="about">
+    <div class="container grid">
+        <!--box start-->
+        <div class="box self__start">
+            <div class="spotlight"></div>
+            <div class="cluster">
+                <div class="flex user">
+                   
+                    <div class="profile">
+                        <img src="{% static './assets/Screenshot_20220413-225327_1.png'%}" alt="">
+                    </div>
+                
+                    
+                    <div class="details">
+                        <h4>Hesborn Nyang'ara</h4>
+                        <p class="text__muted">Fullstack Developer</p>
+                    </div>
+                </div>
+                <h2 class="sub__title">
+                    <span class="primary">Passionate</span>
+                    Developer and Lifelong Learner
+                </h2>
+                <p class="description"> I adapt to different time zones to make sure communication is smooth, no matter where you're located.</p>
+            </div>
+            <div class="cv">
+                
+                <a href="#" class="btn btn__primary">Download CV</a>
+                <img src="{% static './assets/window.svg'%}" alt="">
+            </div>
+        </div>
+        <!--box end-->
+        
+        <!--box start-->
+        <div class="col-2 box">
+            <div class="spotlight"></div>
+            <div class="flex row cluster">
+                <div class="code__block">
+                    <div class="flex__center dot__container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                       
+                    </div>
+<pre>
+<code>
+const developer = {
+    firstName: "Hesborn",
+    lastName: "Nyanga'ara",
+    aka:"code__culture",
+    hobby:repeat = () => {
+        //eat();
+        //sleep();
+        //code();
+        //repeat();
+    }
+}
+</code>
+</pre>
+                </div>
+                <div class="my__drive">
+                    <h2 class="sub__title">
+                        What <span class="primary">Drives Me</span>
+                    </h2>
+                    <p class="description">I’m passionate about the intersection of design 🎨 and
+                        development 💻. I believe the best digital experiences are built
+                        with a deep understanding of the user 👤 and a commitment to
+                        innovation 🌟. Whether working on a simple landing page or a
+                        complex web app, I bring precision 🎯, creativity ✨, and a
+                        user-first mindset to every project.
+                    </p>
+                </div>
+            </div>
+            <img src="{% static './assets/grid-wire-frame.svg'%}" class="kit grid__wireframe" alt="">
+        </div>
+        <!--box end-->
+
+        <!--box start-->
+        <div class="col-2 box">
+            <div class="cluster">
+                <div class="column">
+                    <h2 class="sub__title">
+                        My <span class="primary">Tech Stack</span>
+                    </h2>
+                    <p class="description">Always Evolving My Tech Stack</p>
+                </div>
+                <div class="column stacks__container">
+                     {% for stack in aboutme %}
+                    <div class="flex__center btn stack">
+                        <img src="{{stack.stackimage.url}}" alt=""> {{stack.stackname}}
+                    </div>
+                    {% endfor %}
+                    {% comment %} <div class="flex__center btn stack">
+                        <img src="{% static './assets/download (4).jpeg'%}" alt=""> CSS
+                    </div>
+                    <div class="flex__center btn stack">
+                        <img src="{% static './assets/download (5).jpeg'%}" alt=""> Python
+                    </div>
+                    <div class="flex__center btn stack">
+                        <img src="{% static './assets/download (1).png'%}" alt=""> Javascript
+                    </div>
+                    <div class="flex__center btn stack">
+                        <img src="{% static './assets/downloaddj.png'%}" alt=""> Django
+                    </div>
+                </div> {% endcomment %}
+            </div>
+            <img src="{% static './assets/grid.svg'%}" class="kit grid__box" alt="">
+            <img src="{% static './assets/card-ui.svg'%}" class="kit card__ui" alt="">
+        </div>  
+        <!--box end-->
+                
+        <!--box start-->
+        <div class="box flex__center last__box">
+            <img src="{% static './assets/bg1.jpg'%}" class="background" alt="">
+            <div class="cluster">
+                <h2 class="text__white sub__title">
+                    I'm Committed to Collaboration and Clear Communication
+                </h2>
+
+                <div class="flex__center btn__wrapper">
+                    <a href="#contact" class="btn">Lets Collaborate</a>
+                </div>
+            </div>
+        </div>
+        <!--box end-->
+    </div>
+</section>
+<!--About section end-->
+    
+   {% endblock body %}
+
