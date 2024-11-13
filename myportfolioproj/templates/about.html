@@ -91,12 +91,12 @@ const developer = {
                     </h2>
                     <p class="description">Always Evolving My Tech Stack</p>
                 </div>
+                {% for item in stack %}
                 <div class="column stacks__container">
-                     {% for stack in aboutme %}
                     <div class="flex__center btn stack">
-                        <img src="{{stack.stackimage.url}}" alt=""> {{stack.stackname}}
+                        <img src="{{item.stackimage.url}}" alt=""> {{item.stackname}}
+                        
                     </div>
-                    {% endfor %}
                     {% comment %} <div class="flex__center btn stack">
                         <img src="{% static './assets/download (4).jpeg'%}" alt=""> CSS
                     </div>
@@ -108,8 +108,10 @@ const developer = {
                     </div>
                     <div class="flex__center btn stack">
                         <img src="{% static './assets/downloaddj.png'%}" alt=""> Django
-                    </div>
-                </div> {% endcomment %}
+                    </div> {% endcomment %}
+                    
+                </div> 
+                {% endfor %}
             </div>
             <img src="{% static './assets/grid.svg'%}" class="kit grid__box" alt="">
             <img src="{% static './assets/card-ui.svg'%}" class="kit card__ui" alt="">

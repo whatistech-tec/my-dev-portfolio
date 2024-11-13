@@ -83,6 +83,24 @@ themeCheckbox.onchange = () => {
 /*======== NAVBAR END =========*/
 
 /*======== HEADER START =========*/
+const rating = document.getElementsByClassName('points');
+                        
+//now, animate this number
+const counter = document.querySelector('.flex .counter');
+counter.innerText = 0;
+
+const target = +counter.getAttribute('data-target');
+
+const NumberCounter = () => {
+    const value = +counter.innerText;
+    if(value < target){
+        counter.innerText = Math.ceil(value + 1);
+        setTimeout(() =>{
+            NumberCounter()
+        },25)
+    }
+}
+NumberCounter()
 //gsap code
 gsap
 .timeline({delay:0.5})

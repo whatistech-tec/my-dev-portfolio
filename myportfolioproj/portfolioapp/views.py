@@ -8,8 +8,8 @@ def index(request):
     return render(request, 'index.html', {'details':details})
 
 def about(request):
-    aboutme = About.objects.all()
-    return render(request, 'about.html', {'aboutme':aboutme},)
+    stack = About.objects.all()
+    return render(request, 'about.html', {'stack':stack})
 
 def services(request):
     return render(request, 'services.html')

@@ -59,7 +59,7 @@
                     <div class="point">
                         <div class="flex">
                             <div class="sub__title" id="experience"></div>
-                            <h3 class="sub__title">{{detail.experience}}+</h3>
+                            <h3 class="counter sub__title" data-target="{{detail.experience}}">{{detail.experience}}+</h3>
                         </div>
                         <p class="text__muted">Years of Experience</p>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="point">
                         <div class="flex">
                             <div class="sub__title" id="project"></div>
-                            <h3 class="sub__title">{{detail.completedprojects}}+</h3>
+                            <h3 class="counter sub__title" data-target="{{detail.completedprojects}}">{{detail.completedprojects}}+</h3>
                         </div>
                         <p class="text__muted">Completed projects</p>
     
@@ -78,7 +78,7 @@
                     <div class="point">
                         <div class="flex">
                             <div class="sub__title" id="awards"></div>
-                            <h3 class="sub__title">{{detail.awards}}🏆+</h3>
+                            <h3 class="counter sub__title" data-target="{{detail.awards}}">{{detail.awards}}🏆+</h3>
                         </div>
                         <p class="text__muted">Awards</p>
     
@@ -88,12 +88,13 @@
                     <div class="point">
                         <div class="flex">
                             <div class="sub__title" id="clients"></div>
-                            <h3 class="sub__title">{{detail.clients}}+</h3>
+                            <h3 class="counter sub__title" data-target="{{detail.clients}}">{{detail.clients}}+</h3>
                         </div>
                         <p class="text__muted">Clients Worldwide</p>
     
                     </div>
                     <!--points end-->
+                   
                 </div>
             </div>
             {% endfor %}
