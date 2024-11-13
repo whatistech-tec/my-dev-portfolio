@@ -1,0 +1,732 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-portfolio</title>
+    <!--Prevent color flashing start-->
+    <!--Write the code at the top here-->
+    <style>
+
+        html[data-theme="light"]{
+            background: #efeff1;
+        }
+        html[data-theme="dark"]{
+            background: #0a0a0c;
+        }
+    </style>
+    <!--js to prevent color flashing-->
+    <script>
+        (function(){
+            const storageKey = "theme";
+            function setTheme(darkmode){
+                document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+            }
+            const mql = window.matchMedia("(prefers-color-scheme:dark)");
+            const storedTheme = localStorage.getItem(storageKey);
+            const darkMode = storedTheme ? JSON.parse(storedTheme) : mql.matches;
+            setTheme(darkMode);
+            localStorage.setItem(storageKey, darkMode);
+        })();
+    </script>
+    <!--Prevent color flashing end-->
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="{% static './CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static './CSS/main.css' %}">
+    <!--odometer CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.min.css" integrity="sha512-/k/mL9TQSZHAqtVqXJAiy5bt2w1P7gxdra0UlnFjVHF9a/LC2vxt7otx3BMcn79V/DZsPRwdw8tPlwbElMnIAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--HighlightsJS CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!--Swiper CDN-->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--GSAP CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+    <!--Navbar start-->
+    <nav id="navbar" class="flex__center">
+        <div class="logo">
+            <img src="{% static './assets/logo.svg'%}" alt="">
+        </div>
+        <div class="flex nav__routes">
+            <a href="#header" class="route active">Home</a>
+            <a href="#about" class="route">About</a>
+            <a href="#services" class="route">Services</a>
+            <a href="#projects" class="route">Projects</a>
+            <a href="#testimonials" class="route">Testimonials</a>
+            <a href="#contact" class="route">Contact</a>
+        </div>
+        <div class="flex__center">
+            <label class="theme__toggle">
+                <input type="checkbox" id="theme-checkbox">
+                <div class="icon__container">
+                    <i data-lucide="sun" class="sun"></i>
+                    <i data-lucide="moon" class="moon"></i>
+                </div>
+            </label>
+            <div class="icon__container menu__btn" id="menu__btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+    <!--Navbar start-->
+    
+    <!--Sidebar start-->
+    <aside class="sidebar">
+        <div class="sidebar__wrapper">
+            <div class="flex__center top">
+                <div class="logo">
+                    <img src="{% static './assets/logo.svg'%}" alt="">
+                </div>
+                <div class="icon__container" id="close-sidebar-btn">
+                    <i data-lucide="x"></i>
+                </div>
+            </div>
+            <div class="middle navlinks" id="navlinks">
+                <a href="#header" class="navitem active">Home</a>
+                <a href="#about" class="navitem">About</a>
+                <a href="#services" class="navitem">Services</a>
+                <a href="#projects" class="navitem">Projects</a>
+                <a href="#testimonials" class="navitem">Testimonials</a>
+                <a href="#contact" class="navitem">Contact</a>
+            </div>
+        </div>
+    </aside>
+
+    <!--Sidebar end-->
+
+    <!--Header section start-->
+    <section id="header" class="bg__secondary">
+        <div class="spotlight"></div>
+        <div class="container">
+            <div class="grid">
+                <div class="me">
+                    <img src="{% static './assets/Screenshot_20220413-225327_1.png'%}" alt="">
+                </div>
+            
+                <div class="user__info">
+                        <h2 class="sub__title">Hi 👋, I'm Hesborn Nyang'ara</h2>
+                        <h1 class="title">Fullstack <span class="primary">Web Developer</span><br>Based in Kenya</h1>
+                        <p class="description">I turn ideas into digital solutions that not only look great but also perform flawlessly.</p>
+                    <div class="flex buttons">
+                        <div class="flex social__handles">
+                            <a href="#" target="_blank" class="icon__container handle">
+                                <i data-lucide="github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="icon__container handle">
+                                <i data-lucide="youtube"></i>
+                            </a>
+                            <a href="#" target="_blank" class="icon__container handle">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" class="icon__container handle">
+                                <i data-lucide="twitter"></i>                       
+                            </a>
+                        </div>
+                        <a href="#contact" class="btn btn__primary">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="points">
+                    <div class="spotlight"></div>
+                    <!--points start-->
+                    <div class="point">
+                        <div class="flex">
+                            <div class="odometer sub__title" id="experience"></div>
+                            <h3 class="sub__title">+</h3>
+                        </div>
+                        <p class="text__muted">Years of Experience</p>
+                    </div>
+                    <!--points end-->
+                    <!--points start-->
+                    <div class="point">
+                        <div class="flex">
+                            <div class="odometer sub__title" id="project"></div>
+                            <h3 class="sub__title">+</h3>
+                        </div>
+                        <p class="text__muted">Completed projects</p>
+    
+                    </div>
+                    <!--points end-->
+                    <!--points start-->
+                    <div class="point">
+                        <div class="flex">
+                            <div class="odometer sub__title" id="awards"></div>
+                            <h3 class="sub__title">🏆+</h3>
+                        </div>
+                        <p class="text__muted">Awards</p>
+    
+                    </div>
+                    <!--points end-->
+                    <!--points start-->
+                    <div class="point">
+                        <div class="flex">
+                            <div class="odometer sub__title" id="clients"></div>
+                            <h3 class="sub__title">+</h3>
+                        </div>
+                        <p class="text__muted">Clients Worldwide</p>
+    
+                    </div>
+                    <!--points end-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Header section end-->
+    <!--About section start-->
+    <section id="about">
+        <div class="container grid">
+            <!--box start-->
+            <div class="box self__start">
+                <div class="spotlight"></div>
+                <div class="cluster">
+                    <div class="flex user">
+                        <div class="profile">
+                            <img src="{% static './assets/Screenshot_20220413-225327_1.png'%}" alt="">
+                        </div>
+                        <div class="details">
+                            <h4>Hesborn Nyang'ara</h4>
+                            <p class="text__muted">Fullstack Developer</p>
+                        </div>
+                    </div>
+                    <h2 class="sub__title">
+                        <span class="primary">Passionate</span>
+                        Developer and Lifelong Learner
+                    </h2>
+                    <p class="description"> I adapt to different time zones to make sure communication is smooth, no matter where you're located.</p>
+                </div>
+                <div class="cv">
+                    
+                    <a href="#" class="btn btn__primary">Download CV</a>
+                    <img src="{% static './assets/window.svg'%}" alt="">
+                </div>
+            </div>
+            <!--box end-->
+            
+            <!--box start-->
+            <div class="col-2 box">
+                <div class="spotlight"></div>
+                <div class="flex row cluster">
+                    <div class="code__block">
+                        <div class="flex__center dot__container">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                           
+                        </div>
+    <pre>
+    <code>
+    const developer = {
+        firstName: "Hesborn",
+        lastName: "Nyanga'ara",
+        aka:"code__culture",
+        hobby:repeat = () => {
+            //eat();
+            //sleep();
+            //code();
+            //repeat();
+        }
+    }
+    </code>
+    </pre>
+                    </div>
+                    <div class="my__drive">
+                        <h2 class="sub__title">
+                            What <span class="primary">Drives Me</span>
+                        </h2>
+                        <p class="description">I’m passionate about the intersection of design 🎨 and
+                            development 💻. I believe the best digital experiences are built
+                            with a deep understanding of the user 👤 and a commitment to
+                            innovation 🌟. Whether working on a simple landing page or a
+                            complex web app, I bring precision 🎯, creativity ✨, and a
+                            user-first mindset to every project.
+                        </p>
+                    </div>
+                </div>
+                <img src="{% static './assets/grid-wire-frame.svg'%}" class="kit grid__wireframe" alt="">
+            </div>
+            <!--box end-->
+
+            <!--box start-->
+            <div class="col-2 box">
+                <div class="cluster">
+                    <div class="column">
+                        <h2 class="sub__title">
+                            My <span class="primary">Tech Stack</span>
+                        </h2>
+                        <p class="description">Always Evolving My Tech Stack</p>
+                    </div>
+                    <div class="column stacks__container">
+                        <div class="flex__center btn stack">
+                            <img src="{% static './assets/download.png'%}" alt=""> HTML
+                        </div>
+                        <div class="flex__center btn stack">
+                            <img src="{% static './assets/download (4).jpeg'%}" alt=""> CSS
+                        </div>
+                        <div class="flex__center btn stack">
+                            <img src="{% static './assets/download (5).jpeg'%}" alt=""> Python
+                        </div>
+                        <div class="flex__center btn stack">
+                            <img src="{% static './assets/download (1).png'%}" alt=""> Javascript
+                        </div>
+                        <div class="flex__center btn stack">
+                            <img src="{% static './assets/downloaddj.png'%}" alt=""> Django
+                        </div>
+                    </div>
+                </div>
+                <img src="{% static './assets/grid.svg'%}" class="kit grid__box" alt="">
+                <img src="{% static './assets/card-ui.svg'%}" class="kit card__ui" alt="">
+            </div>  
+            <!--box end-->
+                    
+            <!--box start-->
+            <div class="box flex__center last__box">
+                <img src="{% static './assets/bg1.jpg'%}" class="background" alt="">
+                <div class="cluster">
+                    <h2 class="text__white sub__title">
+                        I'm Committed to Collaboration and Clear Communication
+                    </h2>
+
+                    <div class="flex__center btn__wrapper">
+                        <a href="#contact" class="btn">Lets Collaborate</a>
+                    </div>
+                </div>
+            </div>
+            <!--box end-->
+        </div>
+    </section>
+    <!--About section end-->
+
+    <!--Services section start-->
+    <section id="services" class="bg__secondary">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="sub__title">
+                    My <span class="primary">Services</span>
+                </h2>
+                <p class="description">
+                    As a fullstack developer, I create modern, responsive, and user-friendly websites that are both visually appealing and efficient.
+
+                </p>
+            </div>
+            <div class="services">
+                <!--service start-->
+                <div class="service">
+                    <div class="flex__center circle">
+                        <div class="spotlight"></div>
+                        <div class="icon__container">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+                    </div>
+                    <h3 class="name">Responsive Web Design</h3>
+                    <p class="text__muted description">
+                        Crafting visually appealing and fully responsive websites that
+                        adapt seamlessly to any device, ensuring an excellent user
+                        experience on desktops, tablets, and smartphones.
+                    </p>
+                    <div class="flex__center">
+                        <a href="#contact" class="btn">
+                            Let's Talk<i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--service end-->
+                <!--service start-->
+                <div class="service">
+                    <div class="flex__center circle">
+                        <div class="spotlight"></div>
+                        <div class="icon__container">
+                            <i data-lucide="code"></i>
+                        </div>
+                    </div>
+                    <h3 class="name">Custom Web Development</h3>
+                    <p class="text__muted description">
+                        Building dynamic, interactive web applications tailored to your
+                        specific needs, using modern frontend technologies to create
+                        scalable and maintainable solutions.
+                    </p>
+                    <div class="flex__center">
+                        <a href="#contact" class="btn">
+                            Let's Talk<i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--service end-->
+                <!--service start-->
+                <div class="service">
+                    <div class="flex__center circle">
+                        <div class="spotlight"></div>
+                        <div class="icon__container">
+                            <i data-lucide="pencil-ruler"></i>
+                        </div>
+                    </div>
+                    <h3 class="name">UI/UX Optimization</h3>
+                    <p class="text__muted description">
+                        Enhancing user engagement with intuitive and aesthetically
+                        pleasing interfaces, prioritizing performance, accessibility, and
+                        smooth navigation for optimal user satisfaction.
+
+                    </p>
+                    <div class="flex__center">
+                        <a href="#contact" class="btn">
+                            Let's Talk<i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--service end-->
+            </div>
+        </div>
+    </section>
+    <!--Services section end-->
+
+    <!--projects section start-->
+    <section id="projects">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="sub__title">My Recent Projects</h2>
+                <p class="description">
+                    Explore my latest work, blending creativity and code for functional, responsive websites with clean design and seamless user experiences.
+                </p>
+            </div>
+            <div class="my-projects">
+                <ul class="projects__categories">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".frontend">Frontend</li>
+                    <li data-filter=".backend">Backend</li>
+                    <li data-filter=".fullstack">Fullstack</li>
+                </ul>
+                <div class="projects">
+                    <!--project start-->
+                    <div class="mix frontend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="{% static './assets/project1.png'%}" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Create the ultimate Animated Portfolio
+                            </h3>
+                            
+                            <p class="text__muted description line__clamp__4">
+                                Showcase your skills and creativity with a standout animated
+                                portfolio on YouTube. Capture attention, highlight your work,
+                                and leave a lasting impression with engaging visuals and dynamic
+                                storytelling!
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix backend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="{% static './assets/project2.png'%}" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Designer portfolio with nextjs
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                A sleek and modern designer portfolio built with Next.js,
+                                showcasing responsive design, fast performance, and seamless
+                                navigation. Perfect for creative professionals looking to
+                                display their work in style
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix fullstack project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="{% static './assets/project3.png'%}" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Build Modern Animated Video Conferencing Web App With ReactJs
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                Create a cutting-edge, animated video conferencing web app using
+                                ReactJS and ZegoCloud. This project combines real-time
+                                communication with sleek design, delivering a smooth,
+                                interactive user experience for virtual meetings.
+
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--project end-->
+                    <!--project start-->
+                    <div class="mix frontend project">
+                        <a href="#" target="_blank" class="picture">
+                            <img src="{% static './assets/project4.png'%}" alt="">
+                        </a>
+                        <div class="flex details">
+                            <h3 class="line__clamp__1">
+                                Modern solar website
+                            </h3>
+                            <p class="text__muted description line__clamp__4">
+                                Develop a modern solar energy website designed for clean,
+                                sustainable solutions. Featuring a sleek interface, responsive
+                                design, and user-friendly navigation, this site highlights the
+                                power and efficiency of solar technology.
+
+                            </p>
+                            <div class="flex button">
+                                <a href="#" target="_blank" class="flex__center btn" >
+                                    <i data-lucide="square-arrow-out-up-right"></i>View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--project end-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--projects section end-->
+
+    <!--Testimonials section start-->
+    <section id="testimonials">
+        <div class="section__header">
+            <h2 class="sub__title">
+                What My <span class="primary">Clients</span> Say
+            </h2>
+            <div class="swiper testimonials">
+                <div class="swipper__wrapper">
+                    <!--slide start-->
+                    <div class="testimonial swiper-slide" style="--position: 1">
+                        <div class="flex user">
+                            <div class="profile">
+                                <img src="{% static './assets/client1.jpg'%}" alt="">
+                            </div>
+                            <div class="details">
+
+                                <h3 class="name">Jessica Harper</h3>
+                                <div class="flex row">
+                                    <p class="text__muted position">Product Manager</p>
+                                    <p class="primary company">TecNova Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text__muted content">
+                            Hesborn transformed our website’s user experience! His attention
+                            to detail and ability to translate our vision into a seamless
+                            interface was exceptional. We saw an immediate improvement in user
+                            engagement.
+                        </p>
+                        <div class="flex__center stars__container">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
+                    </div>
+                    <!--slide end-->
+                    <!--slide start-->
+                    <div class="testimonial swiper-slide" style="--position: 2">
+                        <div class="flex user">
+                            <div class="profile">
+                                <img src="{% static './assets/client2.jpg'%}" alt="">
+                            </div>
+                            <div class="details">
+
+                                <h3 class="name">Mark Thompson</h3>
+                                <div class="flex row">
+                                    <p class="text__muted position">CEO</p>
+                                    <p class="primary company">Dynamic Designs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text__muted content">
+                            Working with Hesborn was a breeze! He’s fast, communicative, and
+                            his code is always clean and efficient. Our website looks and
+                            performs better than ever.
+                        </p>
+                        <div class="flex__center stars__container">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
+                    </div>
+                    <!--slide end-->
+                   
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--Testimonials section end-->
+
+    <!--Contact section start-->
+    <section id="contact">
+        <div class="container">
+            <div class="left__column">
+                <div class="box">
+                    <div class="cluster">
+                        <h2 class="sub__title">
+                            Let’s <span class="primary">create something</span> amazing together!
+                        </h2>
+                        <p class="description">
+                            Feel free to reach out for projects, collaborations, or web development inquiries via the form or email!
+                        </p>
+                    </div>
+                    <img src="{% static './assets/list-option-ui.svg'%}" alt="">
+                </div>
+                <div class="box">
+                    <div class="cluster">
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="at-sign"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Email</h3>
+                                <p class="text__muted value">nyandaruahesborn5@gmail.com</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Phone</h3>
+                                <p class="text__muted value">+254746574144</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Address</h3>
+                                <p class="text__muted value">Wendani, Nairobi Kenya</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                    </div>
+                </div>
+            </div>
+            <form  class="contact__form">
+                <div class="spotlight"></div>
+                <h2 class="sub__title">
+                    Let’s <span class="primary">create something</span> amazing together!
+
+                </h2>
+                <div class="row">
+                    <input type="text" placeholder="First name" name="firstname" class="control"/>
+                    <input type="text" placeholder="Last name" name="lastname" class="control"/>
+                </div>
+                <div class="row">
+                    <input type="email" placeholder="Email address" name="email" class="control"/>
+                    <input type="tel" placeholder="Phone number" name="phone" class="control"/>
+                </div>
+                <textarea name="message" placeholder="Message" class="control"></textarea>
+                <button type="button" class="btn btn__primary submit__btn">Send Now</button>
+            
+            </form>
+        </div>
+
+    </section>
+
+    <!--Contact section end-->
+
+    <!--Footer start-->
+    <footer id="footer">
+        <div class="spotlight"></div>
+        <div class="container">
+            <div class="grid">
+                <div class="col-2 column">
+                    <div class="logo">
+                        <img src="{% static './assets/logo.svg'%}" alt="">
+                    </div>
+                    <p class="text__muted description">
+                        Crafting responsive, high-performance websites 🌐 with clean code 💻 and a user-focused approach 👥. Let’s build something amazing together 🚀.
+                    </p>
+                    <div class="flex social__handles">
+                        <a href="#" target="_blank" class="icon__container handle">
+                            <i data-lucide="github"></i>
+                        </a>
+                        <a href="#" target="_blank" class="icon__container handle">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="#" target="_blank" class="icon__container handle">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank" class="icon__container handle">
+                            <i data-lucide="twitter"></i>                        </a>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3 class="group__name">Hot Links</h3>
+                    <div class="routes__container">
+                        <a href="#header" class="route__item">Home</a>
+                        <a href="#about" class="route__item">About</a>
+                        <a href="#services" class="route__item">Services</a>
+                        <a href="#projects" class="route__item">Projects</a>
+                        <a href="#testimonials" class="route__item">Testimonials</a>
+                        <a href="#contact" class="route__item">Contact</a>
+                    </div>
+
+                </div>
+                <div class="column">
+                    <h3 class="group__name">Hot Links</h3>
+                    <div class="routes__container">
+                        <a href="#" class="route__item">Privacy Policy</a>
+                        <a href="#" class="route__item">Terms and Conditions</a>
+                        <a href="#" class="route__item">Cookies Policy</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="copyright">
+                <h3>Copyright &copy; 2024 Hesborn Anyandarua. All rights reserved.</h3>
+                <p class="text__muted">
+                    Built with love by Hesborn Anyandarua A.K.A code__culture
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!--Footer end-->
+
+    <script src="{% static 'mixitup.min.js'%}"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="{% static 'main.js'%}" defer></script>
+</body>
+</html>

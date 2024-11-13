@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block title %}
+        Contact
+    {% endblock title %}
+    
+   {% block body %}
+    <!--Contact section start-->
+    <section id="contact">
+        <div class="container">
+            <div class="left__column">
+                <div class="box">
+                    <div class="cluster">
+                        <h2 class="sub__title">
+                            Let’s <span class="primary">create something</span> amazing together!
+                        </h2>
+                        <p class="description">
+                            Feel free to reach out for projects, collaborations, or web development inquiries via the form or email!
+                        </p>
+                    </div>
+                    <img src="{% static './assets/list-option-ui.svg'%}" alt="">
+                </div>
+                <div class="box">
+                    <div class="cluster">
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="at-sign"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Email</h3>
+                                <p class="text__muted value">nyandaruahesborn5@gmail.com</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Phone</h3>
+                                <p class="text__muted value">+254746574144</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                        <!--option start-->
+                        <div class="flex option">
+                            <div class="icon__container">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div class="details">
+                                <h3 class="name">Address</h3>
+                                <p class="text__muted value">Wendani, Nairobi Kenya</p>
+                            </div>
+                        </div>
+                        <!--option end-->
+                    </div>
+                </div>
+            </div>
+            <form  class="contact__form">
+                <div class="spotlight"></div>
+                <h2 class="sub__title">
+                    Let’s <span class="primary">create something</span> amazing together!
+
+                </h2>
+                <div class="row">
+                    <input type="text" placeholder="First name" name="firstname" class="control"/>
+                    <input type="text" placeholder="Last name" name="lastname" class="control"/>
+                </div>
+                <div class="row">
+                    <input type="email" placeholder="Email address" name="email" class="control"/>
+                    <input type="tel" placeholder="Phone number" name="phone" class="control"/>
+                </div>
+                <textarea name="message" placeholder="Message" class="control"></textarea>
+                <button type="button" class="btn btn__primary submit__btn">Send Now</button>
+            
+            </form>
+        </div>
+
+    </section>
+
+    <!--Contact section end-->
+{% endblock body %}

@@ -17,6 +17,7 @@
     --radius-3: 1.2rem;
     --radius-4: 2rem;
     --radius-5: 100%;
+    --animation-1:#9e83fc;
     --gray-border: 1px solid rgba(89, 88, 88, 0.633);
     --transition: all 400ms ease;
     --gradient-1: linear-gradient(
@@ -35,6 +36,7 @@
     --text-color: #ffffff;
     --bg-base: #0a0a0c;
     --bg-base-rgb: 10, 10, 12;
+    --animation-1:#ffffff33;
     --bg-secondary: #171719;
     --bg-secondary-rgb: 23, 23, 25;
     --gray-border: 1px solid rgba(70, 68, 68, 0.633);

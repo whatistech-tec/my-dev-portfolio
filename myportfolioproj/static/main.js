@@ -4,6 +4,10 @@ lucide.createIcons();
 //Initialize highlightjs
 hljs.highlightAll();
 
+//Register ScrollTriggerPlugin
+gsap.registerPlugin(scrollTrigger);
+
+
 /*======== NAVBAR START =========*/
 const navbar = document.getElementById("navbar");
 const routes = document.querySelectorAll("#navbar .nav__routes .route");
@@ -43,22 +47,6 @@ menuBtn.onclick = () => {
     sidebar.classList.toggle("visible");
 };
 
-sections.forEach(section => {
-    let top = window.scrollY;
-    let offset = section.offsetTop - 100;
-    let height = section.offsetHeight;
-    let id = section.getAttribute("id");
-
-    if(top >= offset && top < offset + height){
-        routes.forEach((route) => {
-            route.classList.remove("active");
-            document
-                .querySelector(".sidebar .navlinks a[href*=" + id + "]")
-                .classList.add("active");
-        });
-    }
-});
-
 closeBtn.onclick = () => {
     sidebar.classList.remove("visible");
 };
@@ -95,25 +83,6 @@ themeCheckbox.onchange = () => {
 /*======== NAVBAR END =========*/
 
 /*======== HEADER START =========*/
-const odometers = document.querySelectorAll(".odometer");
-setTimeout(() => {
-    odometers.forEach(list => {
-        let id = list.getAttribute("id");
-        if (id === "experience"){
-            list.innerHTML = 6;
-        }
-        if (id === "project"){
-            list.innerHTML = 150;
-    
-        }
-        if(id === "awards"){
-            list.innerHTML = 12;
-        }
-        if(id === "clients"){
-            list.innerHTML = 800
-        }
-    })
-},4000);
 //gsap code
 gsap
 .timeline({delay:0.5})
@@ -124,10 +93,6 @@ gsap
 .from("#header .user__info .buttons",{opacity: 0, x: -30})
 .from("#header .point",{opacity: 0, x: -30,stagger:0.5});
 /*======== HEADER END =========*/
-
-
-//Register ScrollTriggerPlugin
-//gsap.registerPlugin(scrollTrigger);
 
 /*======== ABOUT START =========*/
 gsap.timeline({

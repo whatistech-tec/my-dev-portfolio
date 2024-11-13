@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import MyDetails, About
+
+
+admin.site.register(MyDetails)
+admin.site.register(About)
+
