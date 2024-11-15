@@ -10,9 +10,40 @@ class MyDetails(models.Model):
     myimage = models.ImageField(null=True, blank=True)
     
 class About(models.Model):
-    stackimage = models.ImageField(null=True, blank=False) 
-    stackname = models.CharField(max_length=100, default='')
+    stackimage = models.ImageField(null=True, upload_to='stack/') 
+    stackname = models.CharField(max_length=50)
       
-    def __str__(self):
-        return f"{self.stackname}"
+    class Meta:
+        db_table = "imageupload"
     
+    
+class Services(models.Model):
+    icon = models.CharField(max_length=80)
+    service = models.CharField(max_length=50)
+    servicedesc = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return f"{self.service}"
+    
+class Projects(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateTimeField(auto_now_add=True, null=True)
+    projectname = models.CharField(max_length=80)
+    projectfilter = models.CharField(max_length=50)
+    projectdesc = models.CharField(max_length=250)
+    projectimg = models.ImageField(null=False, upload_to='projects/')
+    
+    def __str__(self):
+        return f"{self.projectname}"
+    
+class Testimonials(models.Model):
+    id = models.AutoField(primary_key=True)
+    creation_date = models.DateTimeField(auto_now_add=True, null=True)
+    clientname = models.CharField(max_length=80)
+    clientposition = models.CharField(max_length=80)
+    clientcompany = models.CharField(max_length=80)
+    clientview = models.CharField(max_length=250)
+    clientimg = models.ImageField(null=False, upload_to='projects/')
+    
+    def __str__(self):
+        return f"{self.clientname}"

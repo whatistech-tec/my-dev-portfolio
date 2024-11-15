@@ -1,84 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
     
-    {% block title %}
-        Testimonials
-    {% endblock title %}
-    
-   {% block body %}
+{% block title %}
+    Testimonials
+{% endblock title %}
+
+{% block body %}
    <!--Testimonials section start-->
-   <section id="testimonials">
-    <div class="section__header">
-        <h2 class="sub__title">
-            What My <span class="primary">Clients</span> Say
-        </h2>
-        <div class="swiper testimonials">
-            <div class="swipper__wrapper">
-                <!--slide start-->
-                <div class="testimonial swiper-slide" style="--position: 1">
-                    <div class="flex user">
-                        <div class="profile">
-                            <img src="{% static './assets/client1.jpg'%}" alt="">
-                        </div>
-                        <div class="details">
+    <section id="testimonials">
+        <div class="section__header">
+            <h2 class="sub__title">
+                What My <span class="primary">Clients</span> Say
+            </h2>
+            <div class="swiper testimonials">
+                <div class="swipper__wrapper">
+                    {% for client in myclients %}
+                    <!--slide start-->
+                    <div class="testimonial swiper-slide" style="--position: 1">
+                        <div class="flex user">
+                            <div class="profile">
+                                <img src="{{client.clientimg.url}}" alt="">
+                            </div>
+                            <div class="details">
 
-                            <h3 class="name">Jessica Harper</h3>
-                            <div class="flex row">
-                                <p class="text__muted position">Product Manager</p>
-                                <p class="primary company">TecNova Solutions</p>
+                                <h3 class="name">{{client.clientname}}</h3>
+                                <div class="flex row">
+                                    <p class="text__muted position">{{client.clientposition}}</p>
+                                    <p class="primary company">{{client.clientcompany}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <p class="text__muted content">
-                        Hesborn transformed our website’s user experience! His attention
-                        to detail and ability to translate our vision into a seamless
-                        interface was exceptional. We saw an immediate improvement in user
-                        engagement.
-                    </p>
-                    <div class="flex__center stars__container">
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                    </div>
-                </div>
-                <!--slide end-->
-                <!--slide start-->
-                <div class="testimonial swiper-slide" style="--position: 2">
-                    <div class="flex user">
-                        <div class="profile">
-                            <img src="{% static './assets/client2.jpg'%}" alt="">
+                        <p class="text__muted content">
+                            {{client.clientview}}
+                        </p>
+                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                        <div class="flex__center stars__container">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
                         </div>
-                        <div class="details">
-
-                            <h3 class="name">Mark Thompson</h3>
-                            <div class="flex row">
-                                <p class="text__muted position">CEO</p>
-                                <p class="primary company">Dynamic Designs</p>
-                            </div>
-                        </div>
+                        {{client.creation_date}}
                     </div>
-                    <p class="text__muted content">
-                        Working with Hesborn was a breeze! He’s fast, communicative, and
-                        his code is always clean and efficient. Our website looks and
-                        performs better than ever.
-                    </p>
-                    <div class="flex__center stars__container">
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                        <i data-lucide="star"></i>
-                    </div>
+                    <!--slide end-->
+                    {% endfor %}
+                
                 </div>
-                <!--slide end-->
-               
-               
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 <!--Testimonials section end-->

@@ -648,6 +648,15 @@
     color: var(--color-white);
 }
 
+/* #services .btn__primary{
+    background: var(--color-primary-light);
+    color: var(--text-color);
+    
+    display: block;
+    align-items: baseline;
+    justify-content: center;
+} */
+
 @media only screen and (max-width: 900px){
     #services .services{
         grid-template-columns: (2, 1fr);

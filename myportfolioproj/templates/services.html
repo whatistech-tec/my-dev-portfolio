@@ -18,71 +18,34 @@
 
             </p>
         </div>
+        
         <div class="services">
+            {% for item in myservices %}
             <!--service start-->
             <div class="service">
                 <div class="flex__center circle">
                     <div class="spotlight"></div>
                     <div class="icon__container">
-                        <i data-lucide="smartphone"></i>
+                        <i data-lucide="{{item.icon}}"></i>
                     </div>
                 </div>
-                <h3 class="name">Responsive Web Design</h3>
+                <h3 class="name">{{item.service}}</h3>
                 <p class="text__muted description">
-                    Crafting visually appealing and fully responsive websites that
-                    adapt seamlessly to any device, ensuring an excellent user
-                    experience on desktops, tablets, and smartphones.
+                    {{item.servicedesc}}
                 </p>
                 <div class="flex__center">
-                    <a href="#contact" class="btn">
+                    <a href="/contact" class="btn">
                         Let's Talk<i data-lucide="arrow-right"></i>
                     </a>
                 </div>
+                
             </div>
-            <!--service end-->
-            <!--service start-->
-            <div class="service">
-                <div class="flex__center circle">
-                    <div class="spotlight"></div>
-                    <div class="icon__container">
-                        <i data-lucide="code"></i>
-                    </div>
-                </div>
-                <h3 class="name">Custom Web Development</h3>
-                <p class="text__muted description">
-                    Building dynamic, interactive web applications tailored to your
-                    specific needs, using modern frontend technologies to create
-                    scalable and maintainable solutions.
-                </p>
-                <div class="flex__center">
-                    <a href="#contact" class="btn">
-                        Let's Talk<i data-lucide="arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <!--service end-->
-            <!--service start-->
-            <div class="service">
-                <div class="flex__center circle">
-                    <div class="spotlight"></div>
-                    <div class="icon__container">
-                        <i data-lucide="pencil-ruler"></i>
-                    </div>
-                </div>
-                <h3 class="name">UI/UX Optimization</h3>
-                <p class="text__muted description">
-                    Enhancing user engagement with intuitive and aesthetically
-                    pleasing interfaces, prioritizing performance, accessibility, and
-                    smooth navigation for optimal user satisfaction.
-
-                </p>
-                <div class="flex__center">
-                    <a href="#contact" class="btn">
-                        Let's Talk<i data-lucide="arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <!--service end-->
+            <!--service end--> 
+            {% endfor %}
+            {% comment %} <a href="/contact" class="btn btn__primary">
+                More<i data-lucide="arrow-right"></i>
+            </a> {% endcomment %}
+            
         </div>
     </div>
 </section>

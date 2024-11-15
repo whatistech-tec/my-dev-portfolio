@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import request,HttpResponse
-from .models import MyDetails, About
+from .models import MyDetails, About, Services, Projects, Testimonials
 
 
 def index(request):
@@ -8,16 +8,19 @@ def index(request):
     return render(request, 'index.html', {'details':details})
 
 def about(request):
-    stack = About.objects.all()
-    return render(request, 'about.html', {'stack':stack})
+    myabout = About.objects.all()
+    return render(request, 'about.html', {'myabout':myabout})
 
 def services(request):
-    return render(request, 'services.html')
+    myservices = Services.objects.all()
+    return render(request, 'services.html', {'myservices':myservices})
 
 def projects(request):
-    return render(request, 'projects.html')
+    myprojects = Projects.objects.all()
+    return render(request, 'projects.html',{'myprojects':myprojects})
 
 def testimonials(request):
+    myclients = Testimonials.objects.all()
     return render(request, 'testimonials.html')
 
 def contact(request):
