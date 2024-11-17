@@ -7,50 +7,47 @@
 
 {% block body %}
    <!--Testimonials section start-->
-    <section id="testimonials">
+   <section id="testimonials">
+    <br><br><br>
         <div class="section__header">
             <h2 class="sub__title">
                 What My <span class="primary">Clients</span> Say
             </h2>
-            <div class="swiper testimonials">
-                <div class="swipper__wrapper">
-                    {% for client in myclients %}
-                    <!--slide start-->
-                    <div class="testimonial swiper-slide" style="--position: 1">
-                        <div class="flex user">
-                            <div class="profile">
-                                <img src="{{client.clientimg.url}}" alt="">
-                            </div>
-                            <div class="details">
+        </div>
+        <div class="swiper testimonials">
+            <div class="swipper__wrapper">
+                {% for slide in myclients %}
+                <!--slide start-->
+                <div class="testimonial swiper-slide">
+                    <div class="flex user">
+                        <div class="profile">
+                            <img src="{{slide.clientimg.url}}" alt="">
+                        </div>
+                        <div class="details">
 
-                                <h3 class="name">{{client.clientname}}</h3>
-                                <div class="flex row">
-                                    <p class="text__muted position">{{client.clientposition}}</p>
-                                    <p class="primary company">{{client.clientcompany}}</p>
-                                </div>
+                            <h3 class="name">{{slide.clientname}}</h3>
+                            <div class="flex row">
+                                <p class="text__muted position">{{slide.clientposition}}</p>
+                                <p class="primary company">{{slide.clientcompany}}</p>
                             </div>
                         </div>
-                        <p class="text__muted content">
-                            {{client.clientview}}
-                        </p>
-                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-                        <div class="flex__center stars__container">
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                        </div>
-                        {{client.creation_date}}
                     </div>
-                    <!--slide end-->
-                    {% endfor %}
-                
+                    <p class="text__muted content">
+                        {{slide.clientview}}
+                    </p>
+                    <br>
+                    <div class="flex__center stars__container">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
                 </div>
+                <!--slide end-->
+                {% endfor %}
             </div>
         </div>
     </section>
-
-
 <!--Testimonials section end-->
 {% endblock body %}

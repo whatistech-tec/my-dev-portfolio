@@ -13,8 +13,6 @@ class About(models.Model):
     stackimage = models.ImageField(null=True, upload_to='stack/') 
     stackname = models.CharField(max_length=50)
       
-    class Meta:
-        db_table = "imageupload"
     
     
 class Services(models.Model):
@@ -37,8 +35,6 @@ class Projects(models.Model):
         return f"{self.projectname}"
     
 class Testimonials(models.Model):
-    id = models.AutoField(primary_key=True)
-    creation_date = models.DateTimeField(auto_now_add=True, null=True)
     clientname = models.CharField(max_length=80)
     clientposition = models.CharField(max_length=80)
     clientcompany = models.CharField(max_length=80)
@@ -47,3 +43,4 @@ class Testimonials(models.Model):
     
     def __str__(self):
         return f"{self.clientname}"
+    

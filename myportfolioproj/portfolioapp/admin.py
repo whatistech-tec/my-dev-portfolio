@@ -8,4 +8,3 @@ admin.site.register(About)
 admin.site.register(Services)
 admin.site.register(Projects)
 admin.site.register(Testimonials)
- 

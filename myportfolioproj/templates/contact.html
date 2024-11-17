@@ -8,6 +8,7 @@
    {% block body %}
     <!--Contact section start-->
     <section id="contact">
+        <br><br><br><br>
         <div class="container">
             <div class="left__column">
                 <div class="box">
@@ -59,7 +60,8 @@
                     </div>
                 </div>
             </div>
-            <form  class="contact__form">
+            <form  class="contact__form" method="POST" action="/contact">
+                {% csrf_token %}
                 <div class="spotlight"></div>
                 <h2 class="sub__title">
                     Let’s <span class="primary">create something</span> amazing together!
@@ -73,7 +75,7 @@
                     <input type="email" placeholder="Email address" name="email" class="control"/>
                     <input type="tel" placeholder="Phone number" name="phone" class="control"/>
                 </div>
-                <textarea name="message" placeholder="Message" class="control"></textarea>
+                <textarea name="message" placeholder="Message" class="control" name="message"></textarea>
                 <button type="button" class="btn btn__primary submit__btn">Send Now</button>
             
             </form>

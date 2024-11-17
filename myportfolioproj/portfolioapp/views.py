@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import request,HttpResponse
 from .models import MyDetails, About, Services, Projects, Testimonials
 
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 def index(request):
     details = MyDetails.objects.all()
@@ -21,7 +24,21 @@ def projects(request):
 
 def testimonials(request):
     myclients = Testimonials.objects.all()
-    return render(request, 'testimonials.html')
+    return render(request, 'testimonials.html',{'myclients':myclients})
 
 def contact(request):
+    if request.method == 'POST':
+        message = request.POST['message']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        fname = request.POST['firstname']
+        lname = request.POST['lastname']
+        send_mail(
+            lname,
+            phone,
+            message,
+            'settings.EMAIL_HOST_USER',
+            [email],
+            fail_silently=False
+        )
     return render(request, 'contact.html')

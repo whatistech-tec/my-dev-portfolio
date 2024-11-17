@@ -194,6 +194,23 @@ gsap.timeline({
 )
 .from("#testimials .testimonial",{opacity:0, y: 30, stagger: 0.5});
 
+/*======== TESTIMONIALS START =========*/
+new Swiper(".testimonials",{
+    slidesPerView: 1,
+    spaceBtween:30,
+    loop:true,
+    centerSlides:true,
+    speed:5000,
+    autoplay:{
+        delay:2500,
+        disableOnInteraction:false,
+    },
+    breakpoints:{
+        600:{slidesPerView:"auto"},
+    },
+});
+/*======== TESTIMONIALS END =========*/
+
 
 /*======== CONTACT START =========*/
 gsap.timeline({
