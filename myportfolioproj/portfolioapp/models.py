@@ -9,11 +9,18 @@ class MyDetails(models.Model):
     logo = models.ImageField(null=True)
     myimage = models.ImageField(null=True, blank=True)
     
+# class AboutProfile(models.Model):
+#     profileimage = models.ImageField(null=True, upload_to='stack/')
+#     span = models.CharField(max_length=80)
+#     subtitle = models.CharField(max_length=80)
+#     profilebio = models.CharField(max_length=250)
+    
 class About(models.Model):
     stackimage = models.ImageField(null=True, upload_to='stack/') 
     stackname = models.CharField(max_length=50)
       
-    
+    def __str__(self):
+        return f"{self.stackname}"
     
 class Services(models.Model):
     icon = models.CharField(max_length=80)
