@@ -5,7 +5,7 @@ lucide.createIcons();
 hljs.highlightAll();
 
 //Register ScrollTriggerPlugin
-gsap.registerPlugin(scrollTrigger);
+// gsap.registerPlugin(scrollTrigger);
 
 
 /*======== NAVBAR START =========*/
@@ -59,7 +59,7 @@ navLinks.onclick = () => {
 /*======== SIDEBAR END =========*/
 
 //Theme switching
-const themeCheckbox = document.getElementById('theme-checkbox');
+const themeCheckbox = document.getElementById("theme-checkbox");
 const storageKey = "theme"
 if(JSON.parse(localStorage.getItem(storageKey))){
     document.firstElementChild.setAttribute("data-theme","light");
@@ -83,10 +83,9 @@ themeCheckbox.onchange = () => {
 /*======== NAVBAR END =========*/
 
 /*======== HEADER START =========*/
-const rating = document.getElementsByClassName('points');
-                        
+
 //now, animate this number
-const counter = document.querySelector('.flex .counter');
+const counter = document.querySelector('#header .counter');
 counter.innerText = 0;
 
 const target = +counter.getAttribute('data-target');
@@ -100,7 +99,7 @@ const NumberCounter = () => {
         },25)
     }
 }
-NumberCounter()
+NumberCounter();
 //gsap code
 gsap
 .timeline({delay:0.5})

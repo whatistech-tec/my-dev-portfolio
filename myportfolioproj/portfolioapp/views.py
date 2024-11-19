@@ -44,15 +44,30 @@ def contact(request):
         message = request.POST['message']
         email = request.POST['email']
         phone = request.POST['phone']
-        fname = request.POST['firstname']
-        lname = request.POST['lastname']
-        send_mail = EmailMessage(
-            lname,
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        context = {
+            'firstname':firstname,
+            'lastname':lastname,
+            'email':email,
+            'phone':phone,
+            'message':message
+        }
+        
+        message = """
+        
+        New Message: {}
+        
+        From {}:
+        """.format(context['message'], context['email'] )
+        send_mail(
+            lastname,
             phone,
-            message,
-            'settings.EMAIL_HOST_USER',
-            [email]
+            message, '', ['nyandaruahesborn5@gmail.com']
+        #     'settings.EMAIL_HOST_USER',
+        #     [email],
+        #     fail_silently=False,
+        #     html_message=message
         )
         
-        EmailThread(send_mail).start()
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {})
