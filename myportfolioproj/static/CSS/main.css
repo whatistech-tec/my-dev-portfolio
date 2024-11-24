@@ -540,8 +540,7 @@
     color: var(--color-white);
 }
 
-#services .more,
-#projects .more{
+#services .more{
     display: block;
     margin: auto;
     width: fit-content;
@@ -549,8 +548,7 @@
     margin-bottom: 25px;
 } 
 
-#services .more span,
-#projects .more span{
+#services .more span{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -688,6 +686,48 @@
 #projects a:hover span{
     display: block;
 }
+
+#projects .pages{
+    height: 50px;
+    position: relative;
+    background: #444343;
+    box-shadow: var(--border-shadow);
+    display: block;
+    margin: auto;
+    width: fit-content;
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+#projects .pages li{
+    list-style: none;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+#projects .pages li a{
+    position: relative;
+    padding: 20px 25px;
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 500;
+}
+#projects .pages li a:hover,
+#projects .pages li.active a{
+    background: #ffffff33;
+    
+}
+@media (max-width: 575px) {
+    #projects .pages{
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    #projects .pages li {
+      font-size: 14px;
+      gap: 5px;
+    }
+  }
 /*Responsive code*/
 @media only screen and (max-width: 600px){
     #projects .projects{
@@ -930,7 +970,7 @@
     box-shadow: var(--border-shadow);
     position: relative;
     overflow: hidden;
-    margin-top: 30px;
+   
 }
 #footer .spotlight{
     bottom: -50px;

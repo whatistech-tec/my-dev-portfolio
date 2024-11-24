@@ -4,6 +4,9 @@
     Projects
 {% endblock title %}
 
+{% block css %}
+
+{% endblock css %}
 {% block body %}
     <section id="projects">
         <br><br><br><br>
@@ -52,9 +55,19 @@
                 </div>
             </div>
             <br>
-            <a href="#" class="flex__center btn more">
-                <span>More Projects &nbsp;<i data-lucide="arrow-right"></i></span>
-            </a>
+            <div class="pagination">
+                <ul class="pages">
+                    <li><a href="#">Prev</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
+            <br>
+
         </div>
     </section>
     <!--projects section end-->

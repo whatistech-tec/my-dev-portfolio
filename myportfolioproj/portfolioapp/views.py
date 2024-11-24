@@ -39,6 +39,10 @@ def testimonials(request):
     myclients = Testimonials.objects.all()
     return render(request, 'testimonials.html',{'myclients':myclients})
 
+def admin_dashboard(request):
+    # myadmin = Testimonials.objects.all()
+    return render(request, 'admin-dashboard.html')
+
 def contact(request):
     if request.method == 'POST':
         message = request.POST['message']
