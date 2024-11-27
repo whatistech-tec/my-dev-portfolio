@@ -15,6 +15,12 @@ class EmailThread(threading.Thread):
     def run(self):
         email_message.send()
 
+def signup(request):
+    return render(request, 'signup.html')
+
+def login(request):
+    return render(request, 'login.html')
+
 def index(request):
     details = MyDetails.objects.all()
     return render(request, 'index.html', {'details':details})

@@ -1,0 +1,36 @@
+{% extends 'signup.html' %}
+{% load static %}
+    <!--Header section start-->
+    {% block title %}
+        Login
+    {% endblock title %}
+    
+
+    {% block css %}
+
+    {% endblock css %}
+    
+    {% block breadcrumb %}
+
+    {% endblock breadcrumb %}
+   {% block body %}
+    <section id="auth" class="login">
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="login">
+                <form>
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="Password" name="pswd" placeholder="Password">
+                    <button> Login</button>
+            
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+
+{% block footer %}
+{% endblock footer %}
+

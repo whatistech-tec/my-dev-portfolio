@@ -33,6 +33,7 @@
                         </a>
                         &nbsp; &nbsp;{{project.creation_date}}
                         <div class="flex details">
+                            <br>
                             <h3 class="line__clamp__1">
                                 {{project.projectname}}
                             </h3>
@@ -40,13 +41,13 @@
                             <p class="text__muted description line__clamp__4">
                                 {{project.projectdesc}}
                             </p>
-                            <div class="flex button">
-                                <a href="#" target="_blank" class="flex__center btn" >
-                                    <i data-lucide="square-arrow-out-up-right"></i><span>Live Demo</span>
-                                    &nbsp; 
-                                    <i data-lucide="github"></i><span>Code</span>
-                                </a>
-                            </div>
+                        </div>
+                        <div class="flex button">
+                            <a href="#" target="_blank" class="flex__center btn" >
+                                <i data-lucide="square-arrow-out-up-right"></i><span>Live Demo</span>
+                                &nbsp; 
+                                <i data-lucide="github"></i><span>Code</span>
+                            </a>
                         </div>
                     </div>
                     <!--project end-->
@@ -55,8 +56,8 @@
                 </div>
             </div>
             <br>
-            <div class="pagination">
-                <ul class="pages">
+            <div class="pagination flex__center">
+                <ul class="pages flex">
                     <li><a href="#">Prev</a></li>
                     <li class="active"><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
@@ -71,6 +72,5 @@
         </div>
     </section>
     <!--projects section end-->
-
 {% endblock body %}
 
